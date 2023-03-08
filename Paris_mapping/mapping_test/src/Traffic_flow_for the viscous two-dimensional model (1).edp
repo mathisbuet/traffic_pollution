@@ -1,97 +1,35 @@
-// Peudo one−dimension vehicle trafic flow with road branching
-// Model \ partial_t \rho+\nabla(rho V(rho))−\nu\Delta\rho=0.
-// V(rho) = q(rho)/rho with q(rho) = rho ∗ Vfree∗(1−rho/rhoc)
-//
- real [int] A(2), B(2), C(2), D(2), E(2);
- real [int] F(2), G(2), H(2), I(2), J(2);
- real [int] K(2), L(2), M(2), Ng(2);
- A = [0,0]; B = [9, 1.5]; C = [12, 1.5]; D = [21,0];
- E = [6, 2]; F = [15, 2]; G = [0, 4]; H = [9, 2.5];
- I = [12, 2.5]; J = [21, 4]; K = [0, 1]; L = [0, 3];
- M = [21, 1]; Ng = [21, 3];
-	
- border c1(t=0,1){x=(1-t)*A[0]+t*B[0]; y=(1-t)*A[1]+t*B[1];}
- border c2(t=0,1){x=(1-t)*B[0]+t*C[0]; y=(1-t)*B[1]+t*C[1];}
- border c3(t=0,1){x=(1-t)*C[0]+t*D[0]; y=(1-t)*C[1]+t*D[1];}
- border c4(t=0,1){x=(1-t)*G[0]+t*L[0]; y=(1-t)*G[1]+t*L[1];}
- border c5(t=0,1){x=(1-t)*L[0]+t*E[0]; y=(1-t)*L[1]+t*E[1];}
- border c6(t=0,1){x=(1-t)*E[0]+t*K[0]; y=(1-t)*E[1]+t*K[1];}
- border c7(t=0,1){x=(1-t)*K[0]+t*A[0]; y=(1-t)*K[1]+t*A[1];}
- border c8(t=0,1){x=(1-t)*D[0]+t*M[0]; y=(1-t)*D[1]+t*M[1];}
- border c9(t=0,1){x=(1-t)*M[0]+t*F[0]; y=(1-t)*M[1]+t*F[1];}
- border c10(t=0,1){x=(1-t)*F[0]+t*Ng[0]; y=(1-t)*F[1]+t*Ng[1];}
- border c11(t=0,1){x=(1-t)*Ng[0]+t*J[0]; y=(1-t)*Ng[1]+t*J[1];}
- border c12(t=0,1){x=(1-t)*J[0]+t*I[0]; y=(1-t)*J[1]+t*I[1];}
- border c13(t=0,1){x=(1-t)*I[0]+t*Q[0]; y=(1-t)*I[1]+t*Q[1];}
- border c14(t=0,1){x=(1-t)*H[0]+t*G[0]; y=(1-t)*H[1]+t*G[1];}
+real [int] pt0p0(2), pt0p1(2), pt0p2(2), pt0p3(2), pt1p0(2), pt1p1(2), pt1p2(2), pt1p3(2), pt2p0(2), pt2p1(2), pt2p2(2), pt2p3(2), pt3p0(2), pt3p1(2), pt3p2(2), pt3p3(2), pt4p0(2), pt4p1(2), pt4p2(2), pt4p3(2);
 
+pt0p0 = [1.03,14.55]; pt0p1 = [1.03,15.55]; pt0p2 = [2.0300000000000002,15.55]; pt0p3 = [2.0300000000000002,14.55]; pt1p0 = [4.7,12.5]; pt1p1 = [4.7,13.5]; pt1p2 = [5.7,13.5]; pt1p3 = [5.7,12.5]; pt2p0 = [3.35,10.0]; pt2p1 = [3.35,11.0]; pt2p2 = [4.35,11.0]; pt2p3 = [4.35,10.0]; pt3p0 = [7.6,10.65]; pt3p1 = [7.6,11.65]; pt3p2 = [8.6,11.65]; pt3p3 = [8.6,10.65]; pt4p0 = [6.8,8.9]; pt4p1 = [6.8,9.9]; pt4p2 = [7.8,9.9]; pt4p3 = [7.8,8.9]; 
 
- plot(c1(1) + c2(1)+c3(1)+c4(1)+c5(1)+c6(1)+c7(1)+c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1)+c14(1));
+border c0(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p1+[0]; y=(1-t)*pt0p0[1]+t*pt0p1[1];}
+border c1(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p3+[0]; y=(1-t)*pt0p0[1]+t*pt0p3[1];}
+border c2(t=0,1){x=(1-t)*pt0p1[0]+t*pt0p2+[0]; y=(1-t)*pt0p1[1]+t*pt0p2[1];}
+border c3(t=0,1){x=(1-t)*pt1p1[0]+t*pt1p2+[0]; y=(1-t)*pt1p1[1]+t*pt1p2[1];}
+border c4(t=0,1){x=(1-t)*pt0p2[0]+t*pt1p1+[0]; y=(1-t)*pt0p2[1]+t*pt1p1[1];}
+border c5(t=0,1){x=(1-t)*pt0p3[0]+t*pt1p0+[0]; y=(1-t)*pt0p3[1]+t*pt1p0[1];}
+border c6(t=0,1){x=(1-t)*pt2p0[0]+t*pt2p1+[0]; y=(1-t)*pt2p0[1]+t*pt2p1[1];}
+border c7(t=0,1){x=(1-t)*pt2p0[0]+t*pt2p3+[0]; y=(1-t)*pt2p0[1]+t*pt2p3[1];}
+border c8(t=0,1){x=(1-t)*pt1p0[0]+t*pt2p1+[0]; y=(1-t)*pt1p0[1]+t*pt2p1[1];}
+border c9(t=0,1){x=(1-t)*pt1p3[0]+t*pt2p2+[0]; y=(1-t)*pt1p3[1]+t*pt2p2[1];}
+border c10(t=0,1){x=(1-t)*pt3p2[0]+t*pt3p3+[0]; y=(1-t)*pt3p2[1]+t*pt3p3[1];}
+border c11(t=0,1){x=(1-t)*pt3p1[0]+t*pt3p2+[0]; y=(1-t)*pt3p1[1]+t*pt3p2[1];}
+border c12(t=0,1){x=(1-t)*pt1p2[0]+t*pt3p1+[0]; y=(1-t)*pt1p2[1]+t*pt3p1[1];}
+border c13(t=0,1){x=(1-t)*pt1p3[0]+t*pt3p0+[0]; y=(1-t)*pt1p3[1]+t*pt3p0[1];}
+border c14(t=0,1){x=(1-t)*pt4p2[0]+t*pt4p3+[0]; y=(1-t)*pt4p2[1]+t*pt4p3[1];}
+border c15(t=0,1){x=(1-t)*pt4p0[0]+t*pt4p3+[0]; y=(1-t)*pt4p0[1]+t*pt4p3[1];}
+border c16(t=0,1){x=(1-t)*pt2p2[0]+t*pt4p1+[0]; y=(1-t)*pt2p2[1]+t*pt4p1[1];}
+border c17(t=0,1){x=(1-t)*pt2p3[0]+t*pt4p0+[0]; y=(1-t)*pt2p3[1]+t*pt4p0[1];}
+border c18(t=0,1){x=(1-t)*pt4p1[0]+t*pt3p0+[0]; y=(1-t)*pt4p1[1]+t*pt3p0[1];}
+border c19(t=0,1){x=(1-t)*pt4p2[0]+t*pt3p3+[0]; y=(1-t)*pt4p2[1]+t*pt3p3[1];}
+
+plot(c0(1)+c1(1)+c2(1)+c3(1)+c4(1)+c5(1)+c6(1)+c7(1)+c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1)+c14(1)+c15(1)+c16(1)+c17(1)+c18(1)+c19(1));
+
+plot(c1(1) + c2(1)+c3(1)+c4(1)+c5(1)+c6(1)+c7(1)+c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1)+c14(1)+c15(1)+c16(1)+c17(1)+c18(1)+c19(1)+c20(1));
 
 mesh Th = buildmesh(c1(60)+c2(30)+c3(60)
  +c4(6)+c5(50)+c6(50)+c7(6)
  +c8(6)+c9(50)+c10(50)+c11(6)
- +c12(60)+c13(30)+c14(60)) ;
+ +c12(60)+c13(30)+c14(60)+c15(50)+c16(50)+c17(6)
+ +c18(6)+c19(50)+c0(50)) ;
  plot(Th, ps = "mesh.eps");
- /*
- fespace Vh(Th, P1);
- Vh rho, rhoold, sigma, sigmaold, rhoh, sigmah, p, ph;
- Vh n1, n2, u1, u2, u1visu, u2visu, vrho;
-
- fespace Wh(Th, P2);
- Wh phi, phih;
- //
- real rho0 = 25; // [nb cars / km]
- real rhoc = 300; // critical density
- real vfree = 110; // [km / h]
- real nu = 10; // viscosity
- real dt = 0.004; // time step
- real t = 0; // current time
- // Initial field
- rho = rho0;
- rhoold = rho0;
-
-// Définir un vecteur unitaire de vitesse en résolvant un problème de 
-// Laplace indépendant, puis obtenir le vecteur unitaire du gradient de la solution
-
-
-problem Laplace(phi, phih) =
- int2d(Th)(dx(phi)*dx(phih) + dy(phi)*dy(phih))
- +int1d(Th, c4)(phih) + int1d(Th, c7)(phih)  // pour moi c'est - pas + sauf si dphi/dn = -1
- +on(c8, c11, phi=0);
-
-
- Laplace;
- n1 = dx(phi)/sqrt(dx(phi)^2+dy(phi)^2);   // composante en x de la vitesse normalisée
- n2 = dy(phi)/sqrt(dx(phi)^2+dy(phi)^2);   //  composante en y de la vitesse normalisée
-
- vrho = vfree * (1-rho / rhoc);
-//
-u1 = vrho*n1;
-u2 = vrho*n2;
-// la resolution du modele cité au dessus donne rho.
-problem step1(rho, rhoh) =
-int2d(Th)( rho*rhoh/dt )
- -int2d(Th)( convect([u1,u2], -dt, rhoold)*rhoh/dt )
- +int2d(Th)( nu*dx(rho)*dx(rhoh) + nu*dy(rho)*dy(rhoh) )
- +int2d(Th)(rho*dx(u1)*rhoh+rho*dy(u2)*rhoh)
- +on(c4, rho=rho0)
- +on(c7, rho=rhoc);
-
-for (int it=0 ; it<200 ; it++) {
-	t += dt;
-	step1;
-	rhoold = rho;
-	vrho = vfree * (1 - rho / rhoc);
-	u1 = vrho * n1;
-	u2 = vrho * n2;
-	plot(rho, nbiso=50, fill=1, value=1, wait=0);
-}
-cout << "Final time = " << t << endl;
-
-/*plot(rho, nbiso=40, fill=1, value=1);
-u1visu = u1/vfree;
-u2visu = u2/vfree;
-
-plot([u1visu, u2visu], value=1);
-*/
