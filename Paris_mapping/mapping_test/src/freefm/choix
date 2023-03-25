@@ -1,0 +1,35 @@
+real [int] pt0p0(2), pt0p1(2), pt1p0(2), pt1p1(2), pt1p2(2), pt1p3(2);
+real [int] A(2), B(2),C(2),D(2),E(2);
+real [int] pt2p1(2), pt2p2(2), pt3p2(2), pt3p3(2);
+
+pt0p0 = [1,4]; pt0p1 = [1,5];pt1p0 = [6,4];  pt1p1 = [6.5,5]; pt1p2 = [7,5];pt1p3=[7,4];
+A = [6.5,5.5]; B=[6,5.5];C=[7.5,4];D=[7.5,4.8];E=[7,4.8];
+pt2p1 = [6,10] ; pt2p2 = [7,10];pt3p2=[13,5]; pt3p3=[13,4];
+
+border c0(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p1[0]; y=(1-t)*pt0p0[1]+t*pt0p1[1];}
+border c1(t=0,1){x=(1-t)*pt0p1[0]+t*pt1p1[0]; y=(1-t)*pt0p1[1]+t*pt1p1[1];}
+
+border c2(t=0,1){x=(1-t)*pt1p0[0]+t*pt0p0[0]; y=(1-t)*pt1p0[1]+t*pt0p0[1];}
+border c3(t=0,1){x=(1-t)*pt1p1[0]+t*A[0]; y=(1-t)*pt1p1[1]+t*A[1];}
+border c4(t=0,1){x=(1-t)*A[0]+t*B[0]; y=(1-t)*A[1]+t*B[1];}
+
+border c5(t=0,1){x=(1-t)*B[0]+t*pt2p1[0]; y=(1-t)*B[1]+t*pt2p1[1];}
+border c6(t=0,1){x=(1-t)*pt2p1[0]+t*pt2p2[0]; y=(1-t)*pt2p1[1]+t*pt2p2[1];}
+border c7(t=0,1){x=(1-t)*pt2p2[0]+t*pt1p2[0]; y=(1-t)*pt2p2[1]+t*pt1p2[1];}
+
+border c8(t=0,1){x=(1-t)*pt1p2[0]+t*pt3p2[0]; y=(1-t)*pt1p2[1]+t*pt3p2[1];}
+border c9(t=0,1){x=(1-t)*pt3p2[0]+t*pt3p3[0]; y=(1-t)*pt3p2[1]+t*pt3p3[1];}
+border c10(t=0,1){x=(1-t)*pt3p3[0]+t*C[0]; y=(1-t)*pt3p3[1]+t*C[1];}
+border c11(t=0,1){x=(1-t)*C[0]+t*D[0]; y=(1-t)*C[1]+t*D[1];}
+border c12(t=0,1){x=(1-t)*D[0]+t*E[0]; y=(1-t)*D[1]+t*E[1];}
+border c13(t=0,1){x=(1-t)*E[0]+t*pt1p3[0]; y=(1-t)*E[1]+t*pt1p3[1];}
+
+border c14(t=0,1){x=(1-t)*pt1p3[0]+t*pt1p0[0]; y=(1-t)*pt1p3[1]+t*pt1p0[1];}
+
+plot(c0(1)+c1(1)+c2(1)+c3(1)+c4(1)+c5(1)+c6(1)+c7(1)+
+c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1));
+
+mesh Th = buildmesh(c0(60)+c1(30)+c2(60)+c3(2)+c4(2)+c5(2)+c6(1)+c7(1)
++c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1));
+plot(Th, ps = "mesh.eps");
+

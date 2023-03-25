@@ -30,6 +30,7 @@ def writeBorder(f,line, number_of_borders):
     return number_of_borders
 
 def writeBordersOfPoint(f, number_of_borders,point, left, right, bottom, top):
+    print(point)
     if left == 0:
         number_of_borders= writeBorder(f,printBorder(printPoint4(point,0),printPoint4(point,1), number_of_borders),number_of_borders)      
     if right == 0:
@@ -81,16 +82,18 @@ f = open("freefem_code.txt", "w") # Creating/Opening file in writing mode
 
 points_array={}
 number_of_points = 0
-
+def getMOfLine(x1,y1,x2,y2):
+    #return (y2-y1)/(x2-x1)
+    return 1
 # Points dict definition
 for index, row in dataCSV.iterrows() : # For every rows
 
     if not (row['A'] in points_array) :
-        points_array[row['A']] = ["pt" + str(number_of_points), 0]
+        points_array[row['A']] = ["pt" + str(number_of_points), 0,getMOfLine(float(row['A'].split(',')[0]),float(row['A'].split(',')[1]),float(row['B'].split(',')[0]),float(row['B'].split(',')[1]))]
         number_of_points = number_of_points+1
-    
+        
     if not (row['B'] in points_array) :
-        points_array[row['B']] = ["pt" + str(number_of_points),0]
+        points_array[row['B']] = ["pt" + str(number_of_points),0,getMOfLine(float(row['A'].split(',')[0]),float(row['A'].split(',')[1]),float(row['B'].split(',')[0]),float(row['B'].split(',')[1]))]
         number_of_points = number_of_points+1
 
 string ="real [int] "
@@ -181,6 +184,8 @@ for index, row0 in dataCSV.iterrows() : # For every lines
     left=right=bottom=top=0
     left, right, bottom, top = whereIsPInRelationToO(row0['A'],row0['B'],left,right,bottom,top)
 
+    print(points_array[row0['A']][0])
+    print(points_array[row0['B']][0])
     if left == 1:
         number_of_borders= writeBorder(f,printBorder(printPoint4(points_array[row0['A']][0],1),printPoint4(points_array[row0['B']][0],2), number_of_borders), number_of_borders)
         number_of_borders=writeBorder(f,printBorder(printPoint4(points_array[row0['A']][0],0),printPoint4(points_array[row0['B']][0],3), number_of_borders), number_of_borders)

@@ -1,0 +1,29 @@
+real [int] pt0p0(2), pt0p1(2), pt0p2(2), pt0p3(2), pt1p0(2), pt1p1(2), pt1p2(2), pt1p3(2), pt2p0(2), pt2p1(2), pt2p2(2), pt2p3(2), pt3p0(2), pt3p1(2), pt3p2(2), pt3p3(2), pt4p0(2), pt4p1(2), pt4p2(2), pt4p3(2);
+
+pt0p0 = [0.5,4.5]; pt0p1 = [0.5,5.5]; pt0p2 = [1.5,5.5]; pt0p3 = [1.5,4.5]; pt1p0 = [5.5,4.5]; pt1p1 = [5.5,5.5]; pt1p2 = [6.5,5.5]; pt1p3 = [6.5,4.5]; pt2p0 = [11.5,4.5]; pt2p1 = [11.5,5.5]; pt2p2 = [12.5,5.5]; pt2p3 = [12.5,4.5]; pt3p0 = [5.5,0.5]; pt3p1 = [5.5,1.5]; pt3p2 = [6.5,1.5]; pt3p3 = [6.5,0.5]; pt4p0 = [5.5,11.5]; pt4p1 = [5.5,12.5]; pt4p2 = [6.5,12.5]; pt4p3 = [6.5,11.5]; 
+
+border c0(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p1[0]; y=(1-t)*pt0p0[1]+t*pt0p1[1];}
+border c1(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p3[0]; y=(1-t)*pt0p0[1]+t*pt0p3[1];}
+border c2(t=0,1){x=(1-t)*pt0p1[0]+t*pt0p2[0]; y=(1-t)*pt0p1[1]+t*pt0p2[1];}
+border c3(t=0,1){x=(1-t)*pt0p2[0]+t*pt1p1[0]; y=(1-t)*pt0p2[1]+t*pt1p1[1];}
+border c4(t=0,1){x=(1-t)*pt0p3[0]+t*pt1p0[0]; y=(1-t)*pt0p3[1]+t*pt1p0[1];}
+border c5(t=0,1){x=(1-t)*pt2p2[0]+t*pt2p3[0]; y=(1-t)*pt2p2[1]+t*pt2p3[1];}
+border c6(t=0,1){x=(1-t)*pt2p0[0]+t*pt2p3[0]; y=(1-t)*pt2p0[1]+t*pt2p3[1];}
+border c7(t=0,1){x=(1-t)*pt2p1[0]+t*pt2p2[0]; y=(1-t)*pt2p1[1]+t*pt2p2[1];}
+border c8(t=0,1){x=(1-t)*pt1p2[0]+t*pt2p1[0]; y=(1-t)*pt1p2[1]+t*pt2p1[1];}
+border c9(t=0,1){x=(1-t)*pt1p3[0]+t*pt2p0[0]; y=(1-t)*pt1p3[1]+t*pt2p0[1];}
+border c10(t=0,1){x=(1-t)*pt3p0[0]+t*pt3p1[0]; y=(1-t)*pt3p0[1]+t*pt3p1[1];}
+border c11(t=0,1){x=(1-t)*pt3p2[0]+t*pt3p3[0]; y=(1-t)*pt3p2[1]+t*pt3p3[1];}
+border c12(t=0,1){x=(1-t)*pt3p0[0]+t*pt3p3[0]; y=(1-t)*pt3p0[1]+t*pt3p3[1];}
+border c13(t=0,1){x=(1-t)*pt1p0[0]+t*pt3p1[0]; y=(1-t)*pt1p0[1]+t*pt3p1[1];}
+border c14(t=0,1){x=(1-t)*pt1p3[0]+t*pt3p2[0]; y=(1-t)*pt1p3[1]+t*pt3p2[1];}
+border c15(t=0,1){x=(1-t)*pt4p0[0]+t*pt4p1[0]; y=(1-t)*pt4p0[1]+t*pt4p1[1];}
+border c16(t=0,1){x=(1-t)*pt4p2[0]+t*pt4p3[0]; y=(1-t)*pt4p2[1]+t*pt4p3[1];}
+border c17(t=0,1){x=(1-t)*pt4p1[0]+t*pt4p2[0]; y=(1-t)*pt4p1[1]+t*pt4p2[1];}
+border c18(t=0,1){x=(1-t)*pt1p1[0]+t*pt4p0[0]; y=(1-t)*pt1p1[1]+t*pt4p0[1];}
+border c19(t=0,1){x=(1-t)*pt1p2[0]+t*pt4p3[0]; y=(1-t)*pt1p2[1]+t*pt4p3[1];}
+
+plot(c0(1)+c1(1)+c2(1)+c3(1)+c4(1)+c5(1)+c6(1)+c7(1)+c8(1)+c9(1)+c10(1)+c11(1)+c12(1)+c13(1)+c14(1)+c15(1)+c16(1)+c17(1)+c18(1)+c19(1));
+
+mesh Th = buildmesh(c0(50)+c1(50)+c2(50)+c3(50)+c4(50)+c5(50)+c6(50)+c7(50)+c8(50)+c9(50)+c10(50)+c11(50)+c12(50)+c13(50)+c14(50)+c15(50)+c16(50)+c17(50)+c18(50)+c19(50));
+plot(Th, ps = "mesh.eps");

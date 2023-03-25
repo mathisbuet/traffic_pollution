@@ -1,0 +1,14 @@
+real [int] pt0p0(2), pt0p1(2), pt1p2(2), pt1p3(2);
+
+pt0p0 = [1,4]; pt0p1 = [1,5]; pt1p2 = [6,5]; pt1p3 = [6,4];
+
+border c0(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p1[0]; y=(1-t)*pt0p0[1]+t*pt0p1[1];}
+border c1(t=0,1){x=(1-t)*pt0p1[0]+t*pt1p2[0]; y=(1-t)*pt0p1[1]+t*pt1p2[1];}
+border c2(t=0,1){x=(1-t)*pt1p2[0]+t*pt1p3[0]; y=(1-t)*pt1p2[1]+t*pt1p3[1];}
+border c3(t=0,1){x=(1-t)*pt1p3[0]+t*pt0p0[0]; y=(1-t)*pt1p3[1]+t*pt0p0[1];}
+
+
+plot(c0(1)+c1(1)+c2(1)+c3(1));
+
+mesh Th = buildmesh(c0(50)+c1(50)+c2(50)+c3(50));
+plot(Th, ps = "mesh.eps");
