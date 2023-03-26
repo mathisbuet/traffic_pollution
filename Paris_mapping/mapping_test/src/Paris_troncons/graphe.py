@@ -3,7 +3,7 @@ import math
 
 #Variables globales
 
-offset = 0.2
+offset = 90
 
 # Si le coefficient directeur de la droite est égal à 0
 def posXandY(x,y,pos):
@@ -100,7 +100,7 @@ def whereIsPInRelationToO(A, B,m, left, right, bottom, top):
         bottom=bottom+1
     return  left, right, bottom, top
 
-df = pd.read_csv(r'simple.csv', sep=';') # Points importation
+df = pd.read_csv(r'stcharles.csv', sep=';') # Points importation
 
 dataCSV = pd.DataFrame(df, columns=['A', 'B']) # We only want A and B
 
@@ -118,7 +118,22 @@ points_array_temp ={}
 # On met tous les sommets et tous les arretes dans un tableau
 for index, row in dataCSV.iterrows() : # For every rows
     xyA=row['A'].split(',')
+
+    xyA[0] = xyA[0][2:] 
+    xyA[1] = xyA[1][3:]
+
+    xyA[0] = xyA[0][:6] + '.' + xyA[0][6:]
+    xyA[1] = xyA[1][:6] + '.' + xyA[1][6:]
+
     xyB=row['B'].split(',')
+
+    xyB[0] = xyB[0][2:] 
+    xyB[1] = xyB[1][3:]
+
+    xyB[0] = xyB[0][:6] + '.' + xyB[0][6:]
+    xyB[1] = xyB[1][:6] + '.' + xyB[1][6:]
+
+    
 
     xyAFloat = [float(xyA[0]),float(xyA[1])]
     xyBFloat = [float(xyB[0]),float(xyB[1])]
@@ -194,12 +209,14 @@ for x in points_array :
         mAP = -1/m # coeff de la droite perpendiculaire à la droite passant par A
         bAP = yA-mAP*xA #b de la droite perpendiculaire à la droite passant par A
 
-        #print("y=" + str(m) + "x+" + str(p)) #droite  passant par A et B
+        #print(xA)
+        #print(yA)
+        print("y=" + str(m) + "x+" + str(p)) #droite  passant par A et B
 
         #Coeficient directeur des droites y1, y2, y3 et y4
         aY1 = m
         aY2 = m
-        aY3=mAP
+        aY3=  mAP
         aY4 = mAP
 
         #Trouver b2 de y1 et y2 selon m et p (b1 de la droite passant par 1 et B)
@@ -221,13 +238,13 @@ for x in points_array :
         bY2 =p+b2Y2
         bY3 = yA-mAP*xA+(b2Y3)
         bY4 = yA-mAP*xA+(b2Y4)
-        """
-        print("y=" + str(m) + "x+" + str(p-offset)) #droite  passant par A et B - le coeff y1
-        print("y=" + str(m) + "x+" + str(p+offset)) #droite  passant par A et B + le coeff y2
-        print("y=" + str(mAP) + "x+" + str(yA-mAP*xA)) #droite perpendiculaire passant par A
-        print("y=" + str(mAP) + "x+" + str(yA-mAP*xA+offset)) #droite perpendiculaire passant par A + coeff y3
-        print("y=" + str(mAP) + "x+" + str(yA-mAP*xA-offset)) #droite perpendiculaire passant par A - coeff y4
-        """
+    
+        print("y=" + str(m) + "x+" + str(bY1)) #droite  passant par A et B - le coeff y1
+        print("y=" + str(m) + "x+" + str(bY2)) #droite  passant par A et B + le coeff y2
+        #print("y=" + str(mAP) + "x+" + str(yA-mAP*xA)) #droite perpendiculaire passant par A
+        print("y=" + str(mAP) + "x+" + str(bY3)) #droite perpendiculaire passant par A + coeff y3
+        print("y=" + str(mAP) + "x+" + str(bY4)) #droite perpendiculaire passant par A - coeff y4
+
         xA={}
         yA={}
 

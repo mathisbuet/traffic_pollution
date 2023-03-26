@@ -2,48 +2,48 @@ real [int] pt0p0(2), pt0p1(2), pt0p2(2), pt0p3(2), pt1p0(2), pt1p1(2), pt1p2(2),
 
 pt0p0 = [0.8,4.8]; pt0p1 = [0.8,5.2]; pt0p2 = [1.2,5.2]; pt0p3 = [1.2,4.8]; pt1p0 = [5.8,4.8]; pt1p1 = [5.8,5.2]; pt1p2 = [6.2,5.2]; pt1p3 = [6.2,4.8]; pt2p0 = [11.8,4.8]; pt2p1 = [11.8,5.2]; pt2p2 = [12.2,5.2]; pt2p3 = [12.2,4.8]; pt3p0 = [5.8,8.8]; pt3p1 = [5.8,9.2]; pt3p2 = [6.2,9.2]; pt3p3 = [6.2,8.8]; pt4p0 = [5.8,0.8]; pt4p1 = [5.8,1.2]; pt4p2 = [6.2,1.2]; pt4p3 = [6.2,0.8]; pt5p0 = [11.8,0.8]; pt5p1 = [11.8,1.2]; pt5p2 = [12.2,1.2]; pt5p3 = [12.2,0.8]; pt6p0 = [11.8,8.8]; pt6p1 = [11.8,9.2]; pt6p2 = [12.2,9.2]; pt6p3 = [12.2,8.8]; pt7p0 = [17.8,4.8]; pt7p1 = [17.8,5.2]; pt7p2 = [18.2,5.2]; pt7p3 = [18.2,4.8]; pt8p0 = [17.8,0.8]; pt8p1 = [17.8,1.2]; pt8p2 = [18.2,1.2]; pt8p3 = [18.2,0.8]; pt9p0 = [17.8,8.8]; pt9p1 = [17.8,9.2]; pt9p2 = [18.2,9.2]; pt9p3 = [18.2,8.8]; pt10p0 = [19.8,4.8]; pt10p1 = [19.8,5.2]; pt10p2 = [20.2,5.2]; pt10p3 = [20.2,4.8]; 
 
-border c0(t=0,1){x=(1-t)*pt0p1[0]+t*pt0p0[0]; y=(1-t)*pt0p1[1]+t*pt0p0[1];}//Border id = 0 (b0) of point  pt0
-border c1(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p3[0]; y=(1-t)*pt0p0[1]+t*pt0p3[1];}//Border id = 3 (b3) of point  pt0
-border c2(t=0,1){x=(1-t)*pt0p2[0]+t*pt0p1[0]; y=(1-t)*pt0p2[1]+t*pt0p1[1];}//Border id = 1 (b1) of point  pt0
+border c0(t=0,1){x=(1-t)*pt0p1[0]+t*pt0p0[0]; y=(1-t)*pt0p1[1]+t*pt0p0[1];}//Border id = 0 (b0) of point pt0
+border c1(t=0,1){x=(1-t)*pt0p0[0]+t*pt0p3[0]; y=(1-t)*pt0p0[1]+t*pt0p3[1];}//Border id = 3 (b3) of point pt0
+border c2(t=0,1){x=(1-t)*pt0p2[0]+t*pt0p1[0]; y=(1-t)*pt0p2[1]+t*pt0p1[1];}//Border id = 1 (b1) of point pt0
 border c3(t=0,1){x=(1-t)*pt1p1[0]+t*pt0p2[0]; y=(1-t)*pt1p1[1]+t*pt0p2[1];}
 border c4(t=0,1){x=(1-t)*pt0p3[0]+t*pt1p0[0]; y=(1-t)*pt0p3[1]+t*pt1p0[1];}
 border c5(t=0,1){x=(1-t)*pt2p1[0]+t*pt1p2[0]; y=(1-t)*pt2p1[1]+t*pt1p2[1];}
 border c6(t=0,1){x=(1-t)*pt1p3[0]+t*pt2p0[0]; y=(1-t)*pt1p3[1]+t*pt2p0[1];}
-border c7(t=0,1){x=(1-t)*pt3p1[0]+t*pt3p0[0]; y=(1-t)*pt3p1[1]+t*pt3p0[1];}//Border id = 0 (b0) of point  pt3
-border c8(t=0,1){x=(1-t)*pt3p3[0]+t*pt3p2[0]; y=(1-t)*pt3p3[1]+t*pt3p2[1];}//Border id = 2 (b2) of point  pt3
-border c9(t=0,1){x=(1-t)*pt3p2[0]+t*pt3p1[0]; y=(1-t)*pt3p2[1]+t*pt3p1[1];}//Border id = 1 (b1) of point  pt3
+border c7(t=0,1){x=(1-t)*pt3p1[0]+t*pt3p0[0]; y=(1-t)*pt3p1[1]+t*pt3p0[1];}//Border id = 0 (b0) of point pt3
+border c8(t=0,1){x=(1-t)*pt3p3[0]+t*pt3p2[0]; y=(1-t)*pt3p3[1]+t*pt3p2[1];}//Border id = 2 (b2) of point pt3
+border c9(t=0,1){x=(1-t)*pt3p2[0]+t*pt3p1[0]; y=(1-t)*pt3p2[1]+t*pt3p1[1];}//Border id = 1 (b1) of point pt3
 border c10(t=0,1){x=(1-t)*pt3p0[0]+t*pt1p1[0]; y=(1-t)*pt3p0[1]+t*pt1p1[1];}
 border c11(t=0,1){x=(1-t)*pt1p2[0]+t*pt3p3[0]; y=(1-t)*pt1p2[1]+t*pt3p3[1];}
-border c12(t=0,1){x=(1-t)*pt4p1[0]+t*pt4p0[0]; y=(1-t)*pt4p1[1]+t*pt4p0[1];}//Border id = 0 (b0) of point  pt4
-border c13(t=0,1){x=(1-t)*pt4p3[0]+t*pt4p2[0]; y=(1-t)*pt4p3[1]+t*pt4p2[1];}//Border id = 2 (b2) of point  pt4
-border c14(t=0,1){x=(1-t)*pt4p0[0]+t*pt4p3[0]; y=(1-t)*pt4p0[1]+t*pt4p3[1];}//Border id = 3 (b3) of point  pt4
+border c12(t=0,1){x=(1-t)*pt4p1[0]+t*pt4p0[0]; y=(1-t)*pt4p1[1]+t*pt4p0[1];}//Border id = 0 (b0) of point pt4
+border c13(t=0,1){x=(1-t)*pt4p3[0]+t*pt4p2[0]; y=(1-t)*pt4p3[1]+t*pt4p2[1];}//Border id = 2 (b2) of point pt4
+border c14(t=0,1){x=(1-t)*pt4p0[0]+t*pt4p3[0]; y=(1-t)*pt4p0[1]+t*pt4p3[1];}//Border id = 3 (b3) of point pt4
 border c15(t=0,1){x=(1-t)*pt1p0[0]+t*pt4p1[0]; y=(1-t)*pt1p0[1]+t*pt4p1[1];}
 border c16(t=0,1){x=(1-t)*pt4p2[0]+t*pt1p3[0]; y=(1-t)*pt4p2[1]+t*pt1p3[1];}
-border c17(t=0,1){x=(1-t)*pt5p1[0]+t*pt5p0[0]; y=(1-t)*pt5p1[1]+t*pt5p0[1];}//Border id = 0 (b0) of point  pt5
-border c18(t=0,1){x=(1-t)*pt5p3[0]+t*pt5p2[0]; y=(1-t)*pt5p3[1]+t*pt5p2[1];}//Border id = 2 (b2) of point  pt5
-border c19(t=0,1){x=(1-t)*pt5p0[0]+t*pt5p3[0]; y=(1-t)*pt5p0[1]+t*pt5p3[1];}//Border id = 3 (b3) of point  pt5
+border c17(t=0,1){x=(1-t)*pt5p1[0]+t*pt5p0[0]; y=(1-t)*pt5p1[1]+t*pt5p0[1];}//Border id = 0 (b0) of point pt5
+border c18(t=0,1){x=(1-t)*pt5p3[0]+t*pt5p2[0]; y=(1-t)*pt5p3[1]+t*pt5p2[1];}//Border id = 2 (b2) of point pt5
+border c19(t=0,1){x=(1-t)*pt5p0[0]+t*pt5p3[0]; y=(1-t)*pt5p0[1]+t*pt5p3[1];}//Border id = 3 (b3) of point pt5
 border c20(t=0,1){x=(1-t)*pt2p0[0]+t*pt5p1[0]; y=(1-t)*pt2p0[1]+t*pt5p1[1];}
 border c21(t=0,1){x=(1-t)*pt5p2[0]+t*pt2p3[0]; y=(1-t)*pt5p2[1]+t*pt2p3[1];}
-border c22(t=0,1){x=(1-t)*pt6p1[0]+t*pt6p0[0]; y=(1-t)*pt6p1[1]+t*pt6p0[1];}//Border id = 0 (b0) of point  pt6
-border c23(t=0,1){x=(1-t)*pt6p3[0]+t*pt6p2[0]; y=(1-t)*pt6p3[1]+t*pt6p2[1];}//Border id = 2 (b2) of point  pt6
-border c24(t=0,1){x=(1-t)*pt6p2[0]+t*pt6p1[0]; y=(1-t)*pt6p2[1]+t*pt6p1[1];}//Border id = 1 (b1) of point  pt6
+border c22(t=0,1){x=(1-t)*pt6p1[0]+t*pt6p0[0]; y=(1-t)*pt6p1[1]+t*pt6p0[1];}//Border id = 0 (b0) of point pt6
+border c23(t=0,1){x=(1-t)*pt6p3[0]+t*pt6p2[0]; y=(1-t)*pt6p3[1]+t*pt6p2[1];}//Border id = 2 (b2) of point pt6
+border c24(t=0,1){x=(1-t)*pt6p2[0]+t*pt6p1[0]; y=(1-t)*pt6p2[1]+t*pt6p1[1];}//Border id = 1 (b1) of point pt6
 border c25(t=0,1){x=(1-t)*pt6p0[0]+t*pt2p1[0]; y=(1-t)*pt6p0[1]+t*pt2p1[1];}
 border c26(t=0,1){x=(1-t)*pt2p2[0]+t*pt6p3[0]; y=(1-t)*pt2p2[1]+t*pt6p3[1];}
 border c27(t=0,1){x=(1-t)*pt7p1[0]+t*pt2p2[0]; y=(1-t)*pt7p1[1]+t*pt2p2[1];}
 border c28(t=0,1){x=(1-t)*pt2p3[0]+t*pt7p0[0]; y=(1-t)*pt2p3[1]+t*pt7p0[1];}
-border c29(t=0,1){x=(1-t)*pt8p1[0]+t*pt8p0[0]; y=(1-t)*pt8p1[1]+t*pt8p0[1];}//Border id = 0 (b0) of point  pt8
-border c30(t=0,1){x=(1-t)*pt8p3[0]+t*pt8p2[0]; y=(1-t)*pt8p3[1]+t*pt8p2[1];}//Border id = 2 (b2) of point  pt8
-border c31(t=0,1){x=(1-t)*pt8p0[0]+t*pt8p3[0]; y=(1-t)*pt8p0[1]+t*pt8p3[1];}//Border id = 3 (b3) of point  pt8
+border c29(t=0,1){x=(1-t)*pt8p1[0]+t*pt8p0[0]; y=(1-t)*pt8p1[1]+t*pt8p0[1];}//Border id = 0 (b0) of point pt8
+border c30(t=0,1){x=(1-t)*pt8p3[0]+t*pt8p2[0]; y=(1-t)*pt8p3[1]+t*pt8p2[1];}//Border id = 2 (b2) of point pt8
+border c31(t=0,1){x=(1-t)*pt8p0[0]+t*pt8p3[0]; y=(1-t)*pt8p0[1]+t*pt8p3[1];}//Border id = 3 (b3) of point pt8
 border c32(t=0,1){x=(1-t)*pt7p0[0]+t*pt8p1[0]; y=(1-t)*pt7p0[1]+t*pt8p1[1];}
 border c33(t=0,1){x=(1-t)*pt8p2[0]+t*pt7p3[0]; y=(1-t)*pt8p2[1]+t*pt7p3[1];}
-border c34(t=0,1){x=(1-t)*pt9p1[0]+t*pt9p0[0]; y=(1-t)*pt9p1[1]+t*pt9p0[1];}//Border id = 0 (b0) of point  pt9
-border c35(t=0,1){x=(1-t)*pt9p3[0]+t*pt9p2[0]; y=(1-t)*pt9p3[1]+t*pt9p2[1];}//Border id = 2 (b2) of point  pt9
-border c36(t=0,1){x=(1-t)*pt9p2[0]+t*pt9p1[0]; y=(1-t)*pt9p2[1]+t*pt9p1[1];}//Border id = 1 (b1) of point  pt9
+border c34(t=0,1){x=(1-t)*pt9p1[0]+t*pt9p0[0]; y=(1-t)*pt9p1[1]+t*pt9p0[1];}//Border id = 0 (b0) of point pt9
+border c35(t=0,1){x=(1-t)*pt9p3[0]+t*pt9p2[0]; y=(1-t)*pt9p3[1]+t*pt9p2[1];}//Border id = 2 (b2) of point pt9
+border c36(t=0,1){x=(1-t)*pt9p2[0]+t*pt9p1[0]; y=(1-t)*pt9p2[1]+t*pt9p1[1];}//Border id = 1 (b1) of point pt9
 border c37(t=0,1){x=(1-t)*pt9p0[0]+t*pt7p1[0]; y=(1-t)*pt9p0[1]+t*pt7p1[1];}
 border c38(t=0,1){x=(1-t)*pt7p2[0]+t*pt9p3[0]; y=(1-t)*pt7p2[1]+t*pt9p3[1];}
-border c39(t=0,1){x=(1-t)*pt10p3[0]+t*pt10p2[0]; y=(1-t)*pt10p3[1]+t*pt10p2[1];}//Border id = 2 (b2) of point  pt10
-border c40(t=0,1){x=(1-t)*pt10p0[0]+t*pt10p3[0]; y=(1-t)*pt10p0[1]+t*pt10p3[1];}//Border id = 3 (b3) of point  pt10
-border c41(t=0,1){x=(1-t)*pt10p2[0]+t*pt10p1[0]; y=(1-t)*pt10p2[1]+t*pt10p1[1];}//Border id = 1 (b1) of point  pt10
+border c39(t=0,1){x=(1-t)*pt10p3[0]+t*pt10p2[0]; y=(1-t)*pt10p3[1]+t*pt10p2[1];}//Border id = 2 (b2) of point pt10
+border c40(t=0,1){x=(1-t)*pt10p0[0]+t*pt10p3[0]; y=(1-t)*pt10p0[1]+t*pt10p3[1];}//Border id = 3 (b3) of point pt10
+border c41(t=0,1){x=(1-t)*pt10p2[0]+t*pt10p1[0]; y=(1-t)*pt10p2[1]+t*pt10p1[1];}//Border id = 1 (b1) of point pt10
 border c42(t=0,1){x=(1-t)*pt10p1[0]+t*pt7p2[0]; y=(1-t)*pt10p1[1]+t*pt7p2[1];}
 border c43(t=0,1){x=(1-t)*pt7p3[0]+t*pt10p0[0]; y=(1-t)*pt7p3[1]+t*pt10p0[1];}
 
